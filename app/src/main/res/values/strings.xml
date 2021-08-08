@@ -4,4 +4,9 @@
     <string name="lbl_stock">Акции</string>
     <string name="lbl_profile">Профиль</string>
     <string name="lbl_archive">Архив</string>
+    <string name="lbl_remember">Запомнить</string>
+    <string name="lbl_sign_in">Войти</string>
+
+    <string name="hint_username">Имя пользователя</string>
+    <string name="hint_password">Пароль</string>
 </resources>
