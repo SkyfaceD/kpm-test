@@ -10,7 +10,7 @@
         android:name="org.skyfaced.kpm_test.ui.start.StartFragment"
         tools:layout="@layout/fragment_start">
         <action
-            android:id="@+id/action_start_fragment_to_multiple_back_stack_graph"
+            android:id="@+id/action_start_fragment_to_graph_main"
             app:destination="@id/graph_main"
             app:popUpTo="@id/start_fragment"
             app:popUpToInclusive="true" />
@@ -26,7 +26,7 @@
         android:name="org.skyfaced.kpm_test.ui.authentication.AuthenticationFragment"
         tools:layout="@layout/fragment_authentication">
         <action
-            android:id="@+id/action_authentication_fragment_to_multiple_back_stack_graph"
+            android:id="@+id/action_authentication_fragment_to_graph_main"
             app:destination="@id/graph_main"
             app:popUpTo="@id/authentication_fragment"
             app:popUpToInclusive="true" />

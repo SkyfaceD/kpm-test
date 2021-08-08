@@ -55,8 +55,6 @@ dependencies {
     //Network
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
-
-    //Serializer
     implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:$serializationVersion"
     implementation ("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:$serializationConverterVersion") {
         exclude group: "org.jetbrains.kotlinx:kotlinx-serialization-json"

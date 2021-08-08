@@ -9,4 +9,7 @@
 
     <string name="hint_username">Имя пользователя</string>
     <string name="hint_password">Пароль</string>
+
+    <string name="error_fill_empty_field">Заполните пустое поле</string>
+    <string name="error_authorization">Не удалось авторизоваться</string>
 </resources>

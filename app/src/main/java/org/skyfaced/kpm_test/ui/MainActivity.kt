@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
     private fun binding(block: ActivityMainBinding.() -> Unit) = binding.apply(block)
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.Theme_KPM)
         super.onCreate(savedInstanceState)
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)

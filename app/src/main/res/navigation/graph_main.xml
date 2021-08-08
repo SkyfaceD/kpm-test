@@ -36,7 +36,13 @@
         <fragment
             android:id="@+id/profile_fragment"
             android:name="org.skyfaced.kpm_test.ui.profile.ProfileFragment"
-            tools:layout="@layout/fragment_profile" />
+            tools:layout="@layout/fragment_profile">
+            <action
+                android:id="@+id/action_profile_fragment_to_authentication_fragment"
+                app:destination="@id/authentication_fragment"
+                app:popUpTo="@id/profile_fragment"
+                app:popUpToInclusive="true" />
+        </fragment>
 
     </navigation>
 
