@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/graph_main"
+    app:startDestination="@id/profile_graph">
+
+    <navigation
+        android:id="@+id/stock_graph"
+        app:startDestination="@id/stock_fragment">
+
+        <fragment
+            android:id="@+id/stock_fragment"
+            android:name="org.skyfaced.kpm_test.ui.stock.StockFragment"
+            tools:layout="@layout/fragment_stock" />
+
+    </navigation>
+
+
+    <navigation
+        android:id="@+id/archive_graph"
+        app:startDestination="@id/archive_fragment">
+
+        <fragment
+            android:id="@+id/archive_fragment"
+            android:name="org.skyfaced.kpm_test.ui.archive.ArchiveFragment"
+            tools:layout="@layout/fragment_archive" />
+
+    </navigation>
+
+
+    <navigation
+        android:id="@+id/profile_graph"
+        app:startDestination="@id/profile_fragment">
+
+        <fragment
+            android:id="@+id/profile_fragment"
+            android:name="org.skyfaced.kpm_test.ui.profile.ProfileFragment"
+            tools:layout="@layout/fragment_profile" />
+
+    </navigation>
+
+</navigation>

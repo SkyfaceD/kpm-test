@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name" translatable="false">kpm</string>
+
+    <string name="lbl_stock">Акции</string>
+    <string name="lbl_profile">Профиль</string>
+    <string name="lbl_archive">Архив</string>
 </resources>
