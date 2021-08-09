@@ -13,6 +13,11 @@ fun SharedPreferences.clear(commit: Boolean = false) {
     }
 }
 
+val SharedPreferences.peanutToken: String
+    get() = getString(PREFERENCES_PEANUT_TOKEN, "") ?: ""
+val SharedPreferences.partnerToken: String
+    get() = getString(PREFERENCES_PEANUT_TOKEN, "") ?: ""
+
 val SharedPreferences.credentials
     get() = Credentials(
         getInt(PREFERENCES_LOGIN, -1),
