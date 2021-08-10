@@ -1,4 +1,4 @@
-package org.skyfaced.kpm_test.utils
+package org.skyfaced.kpm_test.utils.extensions
 
 import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.BaseTransientBottomBar

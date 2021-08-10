@@ -1,8 +1,7 @@
 package org.skyfaced.kpm_test.network
 
-import kotlinx.coroutines.flow.Flow
 import org.skyfaced.kpm_test.model.network.body.AuthenticationBody
-import org.skyfaced.kpm_test.model.network.response.AnalyticSignalResponse
+import org.skyfaced.kpm_test.model.network.response.AnalyticSignalsResponse
 import retrofit2.http.*
 
 interface PartnerApi {
@@ -10,10 +9,11 @@ interface PartnerApi {
     suspend fun signIn(@Body body: AuthenticationBody): String
 
     @GET("/clientmobile/GetAnalyticSignals/{login}?tradingsystem=3")
-    fun analyticsSignals(
+    suspend fun analyticSignals(
         @Path("login") login: Int,
-        @Query("pairs") pairs: String,
-        @Query("from") from: Long,
-        @Query("to") to: Long
-    ): Flow<AnalyticSignalResponse>
+        @Header("passkey") token: String,
+        @Query("pairs") currencyPair: String,
+        @Query("from") from: Int,
+        @Query("to") to: Int,
+    ): List<AnalyticSignalsResponse>
 }

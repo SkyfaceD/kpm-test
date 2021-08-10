@@ -13,6 +13,10 @@
     <string name="lbl_check_active_trades">Просмотр активных сделок</string>
     <string name="lbl_tread_volume">Динамика</string>
     <string name="lbl_address">Адрес</string>
+    <string name="lbl_price">Цена</string>
+    <string name="lbl_min_price">Мин.</string>
+    <string name="lbl_max_price">Макс.</string>
+    <string name="lbl_filters">Фильтры</string>
 
     <string name="placeholder_equity">Капитал: %1$s</string>
     <string name="placeholder_free_margin">Доступно: %1$s</string>
@@ -24,6 +28,7 @@
 
     <string name="error_fill_empty_field">Заполните пустое поле</string>
     <string name="error_profile_fetching">Не удалось загрузить профиль</string>
+    <string name="error_archive_fetching">Не удалось загрузить архивы</string>
     <string name="error_authorization">Не удалось авторизоваться</string>
     <string name="error_network_lost">Нет подключения к Интернету</string>
 </resources>

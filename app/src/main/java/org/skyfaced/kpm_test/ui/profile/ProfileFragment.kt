@@ -1,12 +1,8 @@
 package org.skyfaced.kpm_test.ui.profile
 
 import android.content.SharedPreferences
-import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
-import android.text.Spannable
-import android.text.SpannableString
-import android.text.style.ForegroundColorSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,10 +22,10 @@ import org.skyfaced.kpm_test.databinding.FragmentProfileBinding
 import org.skyfaced.kpm_test.model.ProfileInfo
 import org.skyfaced.kpm_test.ui.BaseFragment
 import org.skyfaced.kpm_test.utils.Result
-import org.skyfaced.kpm_test.utils.activitySnack
-import org.skyfaced.kpm_test.utils.clear
+import org.skyfaced.kpm_test.utils.extensions.activitySnack
+import org.skyfaced.kpm_test.utils.extensions.beautifyMoney
+import org.skyfaced.kpm_test.utils.extensions.clear
 import timber.log.Timber
-import java.text.DecimalFormat
 
 class ProfileFragment : BaseFragment<FragmentProfileBinding>(R.layout.fragment_profile) {
     private val preferences by inject<SharedPreferences>()
@@ -121,27 +117,6 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(R.layout.fragment_p
             txtAddress.text = getString(R.string.placeholder_address, address)
             txtZipCode.text = getString(R.string.placeholder_zip_code, zipCode)
         }
-    }
-
-    private fun Double.beautifyMoney(symbol: String): SpannableString {
-        val currencyFormat = DecimalFormat(",##0.00 $symbol").apply {
-            val symbols = decimalFormatSymbols
-            symbols.groupingSeparator = ' '
-            decimalFormatSymbols = symbols
-
-            minimumFractionDigits = 2
-        }
-        val formattedString = currencyFormat.format(this)
-
-        val spannable = SpannableString(formattedString)
-        val startPosition = formattedString.indexOf('.')
-        spannable.setSpan(
-            ForegroundColorSpan(Color.GRAY),
-            startPosition,
-            formattedString.length,
-            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
-        )
-        return spannable
     }
 
     override fun setupBinding(

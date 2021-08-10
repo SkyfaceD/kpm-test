@@ -19,7 +19,7 @@ import org.skyfaced.kpm_test.model.Credentials
 import org.skyfaced.kpm_test.model.network.body.AuthenticationBody
 import org.skyfaced.kpm_test.ui.BaseFragment
 import org.skyfaced.kpm_test.utils.Result
-import org.skyfaced.kpm_test.utils.snack
+import org.skyfaced.kpm_test.utils.extensions.snack
 import timber.log.Timber
 
 class AuthenticationFragment :

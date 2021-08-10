@@ -14,6 +14,9 @@ import org.skyfaced.kpm_test.model.network.body.AuthenticationBody
 import org.skyfaced.kpm_test.repository.authentication.PartnerAuthenticationRepositoryImpl
 import org.skyfaced.kpm_test.repository.authentication.PeanutAuthenticationRepositoryImpl
 import org.skyfaced.kpm_test.utils.*
+import org.skyfaced.kpm_test.utils.extensions.resultError
+import org.skyfaced.kpm_test.utils.extensions.resultLoading
+import org.skyfaced.kpm_test.utils.extensions.resultSuccess
 import timber.log.Timber
 
 class AuthenticationViewModel(

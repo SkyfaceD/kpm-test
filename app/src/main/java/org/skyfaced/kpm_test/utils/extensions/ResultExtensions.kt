@@ -1,4 +1,6 @@
-package org.skyfaced.kpm_test.utils
+package org.skyfaced.kpm_test.utils.extensions
+
+import org.skyfaced.kpm_test.utils.Result
 
 fun <T> resultSuccess(data: T): Result.Success<T> {
     return Result.Success(data)
@@ -6,7 +8,7 @@ fun <T> resultSuccess(data: T): Result.Success<T> {
 
 fun resultError(
     message: String? = null,
-    t: Throwable? = null
+    t: Throwable? = null,
 ): Result.Error {
     return Result.Error(message, t)
 }

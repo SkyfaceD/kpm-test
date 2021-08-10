@@ -8,8 +8,8 @@ import kotlinx.coroutines.launch
 import org.skyfaced.kpm_test.model.ProfileInfo
 import org.skyfaced.kpm_test.repository.profile.ProfileRepository
 import org.skyfaced.kpm_test.utils.Result
-import org.skyfaced.kpm_test.utils.resultHandler
-import org.skyfaced.kpm_test.utils.resultLoading
+import org.skyfaced.kpm_test.utils.extensions.resultHandler
+import org.skyfaced.kpm_test.utils.extensions.resultLoading
 import timber.log.Timber
 
 class ProfileViewModel(private val repository: ProfileRepository) : ViewModel() {
