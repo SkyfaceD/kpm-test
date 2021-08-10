@@ -28,7 +28,7 @@ class AuthenticationViewModel(
     val saveCredentialsNotification = _saveCredentialsNotification.asStateFlow()
 
     fun signIn(body: AuthenticationBody) {
-        Timber.d("Sign In Started")
+        Timber.d("Sign In")
         viewModelScope.launch {
             _signIn.emit(resultLoading())
             val token1 = peanutAuthRepo.signIn(body)
@@ -44,7 +44,7 @@ class AuthenticationViewModel(
     }
 
     fun saveCredentials(credentials: Credentials) {
-        Timber.d("Save Credentials Started")
+        Timber.d("Save Credentials")
         viewModelScope.launch {
             preferences.edit(commit = true) {
                 putInt(PREFERENCES_LOGIN, credentials.login)

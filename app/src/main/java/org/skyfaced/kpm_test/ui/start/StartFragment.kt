@@ -53,24 +53,25 @@ class StartFragment : BaseFragment<FragmentStartBinding>(R.layout.fragment_start
             authViewModel.signIn.flowWithLifecycle(
                 viewLifecycleOwner.lifecycle,
                 Lifecycle.State.STARTED
-            ).collect { response ->
-                Timber.d("$response")
+            ).collect { result ->
                 binding {
-                    when (response) {
+                    when (result) {
                         is Result.Loading -> true
                         else -> false
                     }.let { isLoading ->
                         pbSignIn.isVisible = isLoading
                     }
 
-                    when (response) {
+                    when (result) {
                         is Result.Success -> {
+                            Timber.d("Sign In Response ${result.data}")
                             val (login, password, remember) = credentials
-                            val (token1, token2) = response.data
+                            val (token1, token2) = result.data
                             val credentials = Credentials(login, password, remember, token1, token2)
                             authViewModel.saveCredentials(credentials)
                         }
                         is Result.Error -> {
+                            Timber.d(result.cause, result.message)
                             snack(getString(R.string.error_authorization))
 
                             val destination =
@@ -88,6 +89,7 @@ class StartFragment : BaseFragment<FragmentStartBinding>(R.layout.fragment_start
                 Lifecycle.State.STARTED
             ).collect { isSaved ->
                 if (!isSaved) return@collect
+                Timber.d("Credentials saved")
                 val destination = StartFragmentDirections.actionStartFragmentToGraphMain()
                 findNavController().navigate(destination)
             }

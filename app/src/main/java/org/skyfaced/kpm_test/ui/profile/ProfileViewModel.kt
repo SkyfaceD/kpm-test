@@ -10,6 +10,7 @@ import org.skyfaced.kpm_test.repository.profile.ProfileRepository
 import org.skyfaced.kpm_test.utils.Result
 import org.skyfaced.kpm_test.utils.resultHandler
 import org.skyfaced.kpm_test.utils.resultLoading
+import timber.log.Timber
 
 class ProfileViewModel(private val repository: ProfileRepository) : ViewModel() {
     private val _profileInfo = MutableSharedFlow<Result<ProfileInfo>>(1)
@@ -20,6 +21,7 @@ class ProfileViewModel(private val repository: ProfileRepository) : ViewModel() 
     }
 
     fun fetchProfileInfo() {
+        Timber.d("Fetching profile info")
         viewModelScope.launch {
             _profileInfo.emit(resultLoading())
             _profileInfo.emit(resultHandler(repository.fetchAccountInfo()))

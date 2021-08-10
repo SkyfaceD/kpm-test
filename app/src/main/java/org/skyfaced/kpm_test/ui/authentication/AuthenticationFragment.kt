@@ -67,10 +67,9 @@ class AuthenticationFragment :
             viewModel.signIn.flowWithLifecycle(
                 viewLifecycleOwner.lifecycle,
                 Lifecycle.State.STARTED
-            ).collect { response ->
-                Timber.d("$response")
+            ).collect { result ->
                 binding {
-                    when (response) {
+                    when (result) {
                         is Result.Loading -> true
                         else -> false
                     }.let { isLoading ->
@@ -80,16 +79,20 @@ class AuthenticationFragment :
                         btnSignIn.isEnabled = !isLoading
                     }
 
-                    when (response) {
+                    when (result) {
                         is Result.Success -> {
+                            Timber.d("Sign In Response ${result.data}")
                             val login = edtUsername.text.toString().trim().toInt()
                             val password = edtPassword.text.toString().trim()
                             val remember = cbRemember.isChecked
-                            val (token1, token2) = response.data
+                            val (token1, token2) = result.data
                             val credentials = Credentials(login, password, remember, token1, token2)
                             viewModel.saveCredentials(credentials)
                         }
-                        is Result.Error -> snack(getString(R.string.error_authorization))
+                        is Result.Error -> {
+                            Timber.e(result.cause, result.message)
+                            snack(getString(R.string.error_authorization))
+                        }
                     }
                 }
             }
@@ -101,6 +104,7 @@ class AuthenticationFragment :
                 Lifecycle.State.STARTED
             ).collect { isSaved ->
                 if (!isSaved) return@collect
+                Timber.d("Credentials saved")
                 val destination =
                     AuthenticationFragmentDirections.actionAuthenticationFragmentToGraphMain()
                 findNavController().navigate(destination)
