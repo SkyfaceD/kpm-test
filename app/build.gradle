@@ -52,7 +52,7 @@ dependencies {
     implementation "com.google.android.material:material:$materialVersion"
     implementation "androidx.constraintlayout:constraintlayout:$constraintVersion"
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:$swipeVersion"
-    implementation "com.ericktijerou.koleton:koleton:$koletonVersion"
+    implementation "com.faltenreich:skeletonlayout:$skeletonVersion"
 
     //Network
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"

@@ -31,7 +31,6 @@ import org.skyfaced.kpm_test.utils.clear
 import timber.log.Timber
 import java.text.DecimalFormat
 
-
 class ProfileFragment : BaseFragment<FragmentProfileBinding>(R.layout.fragment_profile) {
     private val preferences by inject<SharedPreferences>()
     private val viewModel by viewModel<ProfileViewModel>()
@@ -60,9 +59,11 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(R.layout.fragment_p
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.profileInfo.flowWithLifecycle(lifecycle).collect { result ->
                 binding {
-                    swipeRefresh.isRefreshing = when (result) {
+                    when (result) {
                         is Result.Loading -> true
                         else -> false
+                    }.let { isRefreshing ->
+                        swipeRefresh.isRefreshing = isRefreshing
                     }
 
                     when (result) {
@@ -111,6 +112,7 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(R.layout.fragment_p
                 val flagUri = Uri.parse("https://flagcdn.com/${countryCode}.svg")
                 imgCountry.load(flagUri)
             } else {
+                //TODO
                 imgCountry.load(R.drawable.fl_empty)
             }
             txtCity.text = city
