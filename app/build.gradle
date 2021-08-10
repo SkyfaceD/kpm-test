@@ -51,6 +51,8 @@ dependencies {
     //UI
     implementation "com.google.android.material:material:$materialVersion"
     implementation "androidx.constraintlayout:constraintlayout:$constraintVersion"
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:$swipeVersion"
+    implementation "com.ericktijerou.koleton:koleton:$koletonVersion"
 
     //Network
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
@@ -59,6 +61,7 @@ dependencies {
     implementation ("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:$serializationConverterVersion") {
         exclude group: "org.jetbrains.kotlinx:kotlinx-serialization-json"
     }
+    implementation "com.squareup.retrofit2:converter-scalars:$retrofitVersion"
 
     //Navigation
     implementation "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
@@ -66,6 +69,7 @@ dependencies {
 
     //Coil
     implementation "io.coil-kt:coil:$coilVersion"
+    implementation "io.coil-kt:coil-svg:$coilVersion"
 
     //DI
     implementation "io.insert-koin:koin-android:$koinVersion"

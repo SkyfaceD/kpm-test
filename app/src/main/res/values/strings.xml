@@ -7,6 +7,12 @@
     <string name="lbl_remember">Запомнить</string>
     <string name="lbl_sign_in">Войти</string>
     <string name="lbl_balance">Баланс</string>
+    <string name="lbl_trades">Сделки</string>
+    <string name="lbl_active">Активно</string>
+    <string name="lbl_total">Всего</string>
+    <string name="lbl_check_active_trades">Просмотр активных сделок</string>
+    <string name="lbl_tread_volume">Динамика</string>
+    <string name="lbl_address">Адрес</string>
 
     <string name="placeholder_equity">Капитал: %1$s</string>
     <string name="placeholder_free_margin">Доступно: %1$s</string>
@@ -17,12 +23,7 @@
     <string name="hint_password">Пароль</string>
 
     <string name="error_fill_empty_field">Заполните пустое поле</string>
+    <string name="error_profile_fetching">Не удалось загрузить профиль</string>
     <string name="error_authorization">Не удалось авторизоваться</string>
     <string name="error_network_lost">Нет подключения к Интернету</string>
-    <string name="lbl_trades">Сделки</string>
-    <string name="lbl_active">Активно</string>
-    <string name="lbl_total">Всего</string>
-    <string name="lbl_check_active_trades">Просмотр активных сделок</string>
-    <string name="lbl_tread_volume">Динамика</string>
-    <string name="lbl_address">Адрес</string>
 </resources>

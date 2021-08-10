@@ -3,8 +3,10 @@ package org.skyfaced.kpm_test.di.modules
 import kotlinx.serialization.ExperimentalSerializationApi
 import org.koin.dsl.module
 import org.skyfaced.kpm_test.network.ApplicationNetwork
-import org.skyfaced.kpm_test.repository.PartnerAuthenticationRepositoryImpl
-import org.skyfaced.kpm_test.repository.PeanutAuthenticationRepositoryImpl
+import org.skyfaced.kpm_test.repository.authentication.PartnerAuthenticationRepositoryImpl
+import org.skyfaced.kpm_test.repository.authentication.PeanutAuthenticationRepositoryImpl
+import org.skyfaced.kpm_test.repository.profile.ProfileRepository
+import org.skyfaced.kpm_test.repository.profile.ProfileRepositoryImpl
 
 @ExperimentalSerializationApi
 val repositoryModule = module {
@@ -14,5 +16,9 @@ val repositoryModule = module {
 
     single {
         PartnerAuthenticationRepositoryImpl(get<ApplicationNetwork>().partnerApi())
+    }
+
+    single<ProfileRepository> {
+        ProfileRepositoryImpl(get<ApplicationNetwork>().peanutApi(), get())
     }
 }

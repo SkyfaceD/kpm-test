@@ -1,4 +1,4 @@
-package org.skyfaced.kpm_test.repository
+package org.skyfaced.kpm_test.repository.authentication
 
 import org.skyfaced.kpm_test.model.network.body.AuthenticationBody
 import org.skyfaced.kpm_test.network.PartnerApi

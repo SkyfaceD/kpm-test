@@ -11,8 +11,8 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import org.skyfaced.kpm_test.model.Credentials
 import org.skyfaced.kpm_test.model.network.body.AuthenticationBody
-import org.skyfaced.kpm_test.repository.PartnerAuthenticationRepositoryImpl
-import org.skyfaced.kpm_test.repository.PeanutAuthenticationRepositoryImpl
+import org.skyfaced.kpm_test.repository.authentication.PartnerAuthenticationRepositoryImpl
+import org.skyfaced.kpm_test.repository.authentication.PeanutAuthenticationRepositoryImpl
 import org.skyfaced.kpm_test.utils.*
 import timber.log.Timber
 

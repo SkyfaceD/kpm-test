@@ -7,6 +7,8 @@ import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.snackbar.BaseTransientBottomBar
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -57,5 +59,14 @@ class MainActivity : AppCompatActivity() {
 
             navView.setupWithNavController(navController)
         }
+    }
+
+    fun snack(
+        message: String,
+        @BaseTransientBottomBar.Duration duration: Int = Snackbar.LENGTH_SHORT,
+    ) {
+        Snackbar.make(binding.root, message, duration)
+            .setAnchorView(binding.navView)
+            .show()
     }
 }

@@ -5,7 +5,7 @@ sealed class Result<out T> {
 
     data class Error(
         val message: String?,
-        val stackTrace: Throwable?
+        val cause: Throwable?,
     ) : Result<Nothing>()
 
     object Loading : Result<Nothing>()

@@ -13,8 +13,8 @@ fun resultError(
 
 fun resultLoading() = Result.Loading
 
-fun <T> resultHandler(data: T): Result<T> = try {
-    resultSuccess(data)
+fun <T> resultHandler(data: T?): Result<T> = try {
+    resultSuccess(data!!)
 } catch (e: Exception) {
     resultError(e.message, e)
 }

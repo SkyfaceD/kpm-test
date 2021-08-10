@@ -1,6 +1,5 @@
 package org.skyfaced.kpm_test.network
 
-import kotlinx.coroutines.flow.Flow
 import org.skyfaced.kpm_test.model.network.body.AuthenticationBody
 import org.skyfaced.kpm_test.model.network.body.AuthorizationBody
 import org.skyfaced.kpm_test.model.network.response.AccountInformationResponse
@@ -13,8 +12,8 @@ interface PeanutApi {
     suspend fun signIn(@Body body: AuthenticationBody): AuthenticationResponse
 
     @POST("/api/ClientCabinetBasic/GetAccountInformation")
-    fun accountInformation(@Body body: AuthorizationBody): Flow<AccountInformationResponse>
+    suspend fun accountInformation(@Body body: AuthorizationBody): AccountInformationResponse
 
     @POST("/api/ClientCabinetBasic/GetLastFourNumbersPhone")
-    fun lastFourNumberPhone(@Body body: AuthorizationBody): Flow<String>
+    suspend fun lastFourNumberPhone(@Body body: AuthorizationBody): String
 }

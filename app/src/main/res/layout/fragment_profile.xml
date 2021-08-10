@@ -8,18 +8,30 @@
     <View
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="?attr/backgroundColor"
+        android:background="?attr/colorSurface"
         android:elevation="8dp"
         app:layout_constraintBottom_toTopOf="@id/gl_toolbar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/img_verification_level"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:padding="4dp"
+        android:translationZ="8dp"
+        app:layout_constraintBottom_toTopOf="@id/gl_toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@drawable/ic_lock" />
+
     <TextView
         android:id="@+id/txt_username"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginHorizontal="8dp"
         android:ellipsize="end"
         android:maxLines="1"
         android:textAppearance="?attr/textAppearanceHeadline6"
@@ -27,7 +39,7 @@
         android:translationZ="8dp"
         app:layout_constraintBottom_toTopOf="@id/txt_phone_number"
         app:layout_constraintEnd_toStartOf="@id/btn_sign_out"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/img_verification_level"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed"
         tools:text="TestName" />
@@ -65,329 +77,346 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="60dp" />
 
-    <androidx.core.widget.NestedScrollView
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:clipToPadding="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/gl_toolbar">
 
-        <LinearLayout
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="16dp">
+            android:clipToPadding="false">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/lbl_balance"
-                android:textAppearance="?attr/textAppearanceHeadline5" />
-
-            <com.google.android.material.card.MaterialCardView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp">
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="16dp">
 
-                <LinearLayout
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lbl_balance"
+                    android:textAppearance="?attr/textAppearanceHeadline5" />
+
+                <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:paddingHorizontal="16dp"
-                    android:paddingTop="4dp"
-                    android:paddingBottom="8dp">
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:strokeColor="?attr/colorOnBackground"
+                    app:strokeWidth="0.5dp">
 
-                    <TextView
-                        android:id="@+id/txt_balance"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?attr/textAppearanceHeadline3"
-                        tools:text="2 796.24 ₽" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:paddingHorizontal="16dp"
+                        android:paddingTop="4dp"
+                        android:paddingBottom="8dp">
 
-                    <TextView
-                        android:id="@+id/txt_equity"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?attr/textAppearanceSubtitle2"
-                        tools:text="Капитал: 2 796.24 ₽" />
+                        <TextView
+                            android:id="@+id/txt_balance"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?attr/textAppearanceHeadline3"
+                            tools:text="2 796.24 ₽" />
 
-                    <TextView
-                        android:id="@+id/txt_free_margin"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?attr/textAppearanceSubtitle2"
-                        tools:text="Доступно: 2 796.24 ₽" />
+                        <TextView
+                            android:id="@+id/txt_equity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?attr/textAppearanceSubtitle2"
+                            tools:text="Капитал: 2 796.24 ₽" />
 
-                </LinearLayout>
+                        <TextView
+                            android:id="@+id/txt_free_margin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?attr/textAppearanceSubtitle2"
+                            tools:text="Доступно: 2 796.24 ₽" />
 
-            </com.google.android.material.card.MaterialCardView>
+                    </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/lbl_trades"
-                android:textAppearance="?attr/textAppearanceHeadline5" />
+                </com.google.android.material.card.MaterialCardView>
 
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/lbl_trades"
+                    android:textAppearance="?attr/textAppearanceHeadline5" />
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card_trades"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:strokeColor="?attr/colorOnBackground"
+                    app:strokeWidth="0.5dp">
 
-                    <TextView
-                        android:id="@+id/txt_current_trades_count_value"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:paddingHorizontal="16dp"
-                        android:textAppearance="?attr/textAppearanceHeadline3"
-                        app:layout_constrainedWidth="true"
-                        app:layout_constraintEnd_toStartOf="@id/divider_vertical"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        tools:text="0" />
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/lbl_current_trades_count_caption"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/lbl_active"
-                        app:layout_constraintEnd_toEndOf="@id/txt_current_trades_count_value"
-                        app:layout_constraintStart_toStartOf="@id/txt_current_trades_count_value"
-                        app:layout_constraintTop_toBottomOf="@id/txt_current_trades_count_value" />
+                        <TextView
+                            android:id="@+id/txt_current_trades_count_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:paddingHorizontal="16dp"
+                            android:textAppearance="?attr/textAppearanceHeadline3"
+                            app:layout_constrainedWidth="true"
+                            app:layout_constraintEnd_toStartOf="@id/divider_vertical"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:text="0" />
 
-                    <TextView
-                        android:id="@+id/txt_all_trades_count_value"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:paddingHorizontal="16dp"
-                        android:textAppearance="?attr/textAppearanceHeadline3"
-                        app:layout_constrainedWidth="true"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/divider_vertical"
-                        app:layout_constraintTop_toTopOf="parent"
-                        tools:text="12" />
+                        <TextView
+                            android:id="@+id/lbl_current_trades_count_caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/lbl_active"
+                            app:layout_constraintEnd_toEndOf="@id/txt_current_trades_count_value"
+                            app:layout_constraintStart_toStartOf="@id/txt_current_trades_count_value"
+                            app:layout_constraintTop_toBottomOf="@id/txt_current_trades_count_value" />
 
-                    <TextView
-                        android:id="@+id/lbl_all_trades_count_caption"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/lbl_total"
-                        app:layout_constraintEnd_toEndOf="@id/txt_all_trades_count_value"
-                        app:layout_constraintStart_toStartOf="@id/txt_all_trades_count_value"
-                        app:layout_constraintTop_toBottomOf="@id/txt_all_trades_count_value" />
+                        <TextView
+                            android:id="@+id/txt_total_trades_count_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:paddingHorizontal="16dp"
+                            android:textAppearance="?attr/textAppearanceHeadline3"
+                            app:layout_constrainedWidth="true"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/divider_vertical"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:text="12" />
 
-                    <TextView
-                        android:id="@+id/lbl_check_current_trades"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="16dp"
-                        android:text="@string/lbl_check_active_trades"
-                        android:textAppearance="?attr/textAppearanceBody1"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/divider_horizontal" />
+                        <TextView
+                            android:id="@+id/lbl_total_trades_count_caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/lbl_total"
+                            app:layout_constraintEnd_toEndOf="@id/txt_total_trades_count_value"
+                            app:layout_constraintStart_toStartOf="@id/txt_total_trades_count_value"
+                            app:layout_constraintTop_toBottomOf="@id/txt_total_trades_count_value" />
 
-                    <ImageView
-                        android:id="@+id/img_check_current_trades"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="12dp"
-                        app:layout_constraintBottom_toBottomOf="@id/lbl_check_current_trades"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="1.0"
-                        app:layout_constraintStart_toEndOf="@id/lbl_check_current_trades"
-                        app:layout_constraintTop_toTopOf="@id/lbl_check_current_trades"
-                        app:srcCompat="@drawable/ic_chevron_right" />
+                        <TextView
+                            android:id="@+id/lbl_check_current_trades"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="16dp"
+                            android:text="@string/lbl_check_active_trades"
+                            android:textAppearance="?attr/textAppearanceBody1"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/divider_horizontal" />
 
-                    <View
-                        android:id="@+id/divider_vertical"
-                        android:layout_width="0.5dp"
-                        android:layout_height="0dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginBottom="8dp"
-                        android:background="?attr/colorOnBackground"
-                        app:layout_constraintBottom_toTopOf="@id/divider_horizontal"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        <ImageView
+                            android:id="@+id/img_check_current_trades"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="12dp"
+                            app:layout_constraintBottom_toBottomOf="@id/lbl_check_current_trades"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="1.0"
+                            app:layout_constraintStart_toEndOf="@id/lbl_check_current_trades"
+                            app:layout_constraintTop_toTopOf="@id/lbl_check_current_trades"
+                            app:srcCompat="@drawable/ic_chevron_right" />
 
-                    <View
-                        android:id="@+id/divider_horizontal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="0.5dp"
-                        android:layout_marginTop="8dp"
-                        android:background="@color/black"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/lbl_current_trades_count_caption"
-                        tools:visibility="invisible" />
+                        <View
+                            android:id="@+id/divider_vertical"
+                            android:layout_width="0.5dp"
+                            android:layout_height="0dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="8dp"
+                            android:background="?attr/colorOnBackground"
+                            app:layout_constraintBottom_toTopOf="@id/divider_horizontal"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-                    <androidx.constraintlayout.widget.Group
-                        android:id="@+id/grp_check_current_trades"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:visibility="gone"
-                        app:constraint_referenced_ids="lbl_check_current_trades, img_check_current_trades"
-                        tools:visibility="gone" />
+                        <View
+                            android:id="@+id/divider_horizontal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0.5dp"
+                            android:layout_marginTop="8dp"
+                            android:background="?attr/colorOnBackground"
+                            android:visibility="invisible"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/lbl_current_trades_count_caption"
+                            tools:visibility="visible" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                        <androidx.constraintlayout.widget.Group
+                            android:id="@+id/grp_check_current_trades"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:visibility="gone"
+                            app:constraint_referenced_ids="lbl_check_current_trades, img_check_current_trades"
+                            tools:visibility="visible" />
 
-            </com.google.android.material.card.MaterialCardView>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/lbl_tread_volume"
-                android:textAppearance="?attr/textAppearanceHeadline5" />
+                </com.google.android.material.card.MaterialCardView>
 
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/lbl_tread_volume"
+                    android:textAppearance="?attr/textAppearanceHeadline5" />
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:padding="8dp">
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:strokeColor="?attr/colorOnBackground"
+                    app:strokeWidth="0.5dp">
 
-                    <TextView
-                        android:id="@+id/txt_volume_current_trades_count_value"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingHorizontal="16dp"
-                        android:textAppearance="?attr/textAppearanceHeadline3"
-                        app:layout_constrainedWidth="true"
-                        app:layout_constraintEnd_toStartOf="@id/volume_divider_vertical"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        tools:text="0" />
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="8dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/lbl_active"
-                        app:layout_constraintEnd_toEndOf="@id/txt_volume_current_trades_count_value"
-                        app:layout_constraintStart_toStartOf="@id/txt_volume_current_trades_count_value"
-                        app:layout_constraintTop_toBottomOf="@id/txt_volume_current_trades_count_value" />
+                        <TextView
+                            android:id="@+id/txt_volume_current_trades_count_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingHorizontal="16dp"
+                            android:textAppearance="?attr/textAppearanceHeadline3"
+                            app:layout_constrainedWidth="true"
+                            app:layout_constraintEnd_toStartOf="@id/volume_divider_vertical"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:text="0" />
 
-                    <TextView
-                        android:id="@+id/txt_volume_all_trades_count_value"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingHorizontal="16dp"
-                        android:textAppearance="?attr/textAppearanceHeadline3"
-                        app:layout_constrainedWidth="true"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="@id/volume_divider_vertical"
-                        app:layout_constraintTop_toTopOf="parent"
-                        tools:text="360" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/lbl_active"
+                            app:layout_constraintEnd_toEndOf="@id/txt_volume_current_trades_count_value"
+                            app:layout_constraintStart_toStartOf="@id/txt_volume_current_trades_count_value"
+                            app:layout_constraintTop_toBottomOf="@id/txt_volume_current_trades_count_value" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/lbl_total"
-                        app:layout_constraintEnd_toEndOf="@id/txt_volume_all_trades_count_value"
-                        app:layout_constraintStart_toStartOf="@id/txt_volume_all_trades_count_value"
-                        app:layout_constraintTop_toBottomOf="@id/txt_volume_all_trades_count_value" />
+                        <TextView
+                            android:id="@+id/txt_volume_total_trades_count_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingHorizontal="16dp"
+                            android:textAppearance="?attr/textAppearanceHeadline3"
+                            app:layout_constrainedWidth="true"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="@id/volume_divider_vertical"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:text="360" />
 
-                    <View
-                        android:id="@+id/volume_divider_vertical"
-                        android:layout_width="0.5dp"
-                        android:layout_height="0dp"
-                        android:background="?attr/colorOnBackground"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/lbl_total"
+                            app:layout_constraintEnd_toEndOf="@id/txt_volume_total_trades_count_value"
+                            app:layout_constraintStart_toStartOf="@id/txt_volume_total_trades_count_value"
+                            app:layout_constraintTop_toBottomOf="@id/txt_volume_total_trades_count_value" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                        <View
+                            android:id="@+id/volume_divider_vertical"
+                            android:layout_width="0.5dp"
+                            android:layout_height="0dp"
+                            android:background="?attr/colorOnBackground"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-            </com.google.android.material.card.MaterialCardView>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/lbl_address"
-                android:textAppearance="?attr/textAppearanceHeadline5" />
+                </com.google.android.material.card.MaterialCardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/lbl_address"
+                    android:textAppearance="?attr/textAppearanceHeadline5" />
 
 
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="16dp">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:padding="8dp">
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="16dp"
+                    app:strokeColor="?attr/colorOnBackground"
+                    app:strokeWidth="0.5dp">
 
-                    <ImageView
-                        android:id="@+id/img_country"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        tools:srcCompat="@drawable/za" />
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="8dp">
 
-                    <TextView
-                        android:id="@+id/txt_city"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:ellipsize="end"
-                        android:maxLines="1"
-                        android:paddingHorizontal="8dp"
-                        android:textAppearance="?attr/textAppearanceHeadline5"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/img_country"
-                        app:layout_constraintTop_toTopOf="parent"
-                        tools:text="Калининград" />
+                        <ImageView
+                            android:id="@+id/img_country"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:srcCompat="@drawable/fl_za" />
 
-                    <TextView
-                        android:id="@+id/txt_address"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:ellipsize="end"
-                        android:maxLines="1"
-                        android:paddingHorizontal="8dp"
-                        android:textAppearance="?attr/textAppearanceCaption"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/img_country"
-                        app:layout_constraintTop_toBottomOf="@id/txt_city"
-                        tools:text="Адрес: ул Алданская д 15 кв 11" />
+                        <TextView
+                            android:id="@+id/txt_city"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:paddingHorizontal="8dp"
+                            android:textAppearance="?attr/textAppearanceHeadline5"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/img_country"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:text="Калининград" />
 
-                    <TextView
-                        android:id="@+id/txt_zip_code"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:ellipsize="end"
-                        android:maxLines="1"
-                        android:paddingHorizontal="8dp"
-                        android:textAppearance="?attr/textAppearanceCaption"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/img_country"
-                        app:layout_constraintTop_toBottomOf="@id/txt_address"
-                        tools:text="Индекс: ru236013" />
+                        <TextView
+                            android:id="@+id/txt_address"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:paddingHorizontal="8dp"
+                            android:textAppearance="?attr/textAppearanceCaption"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/img_country"
+                            app:layout_constraintTop_toBottomOf="@id/txt_city"
+                            tools:text="Адрес: ул Алданская д 15 кв 11" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                        <TextView
+                            android:id="@+id/txt_zip_code"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:paddingHorizontal="8dp"
+                            android:textAppearance="?attr/textAppearanceCaption"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/img_country"
+                            app:layout_constraintTop_toBottomOf="@id/txt_address"
+                            tools:text="Индекс: ru236013" />
 
-            </com.google.android.material.card.MaterialCardView>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
 
-    </androidx.core.widget.NestedScrollView>
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

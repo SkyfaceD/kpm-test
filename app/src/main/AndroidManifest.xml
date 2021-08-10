@@ -32,6 +32,9 @@
             <meta-data
                 android:name="org.skyfaced.kpm_test.startup.TimberInitializer"
                 android:value="androidx.startup" />
+            <meta-data
+                android:name="org.skyfaced.kpm_test.startup.CoilInitializer"
+                android:value="androidx.startup" />
         </provider>
     </application>
 

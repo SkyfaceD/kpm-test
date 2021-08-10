@@ -10,6 +10,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import org.skyfaced.kpm_test.utils.PARTNER_URL
 import org.skyfaced.kpm_test.utils.PEANUT_URL
 import retrofit2.Retrofit
+import retrofit2.converter.scalars.ScalarsConverterFactory
 import timber.log.Timber
 import java.util.concurrent.TimeUnit
 
@@ -18,7 +19,7 @@ class ApplicationNetwork {
     private val jsonConverter = Json.asConverterFactory("application/json".toMediaType())
     private val logInterceptor = HttpLoggingInterceptor { message ->
         Timber.tag("OkHttp").d(message)
-    }.setLevel(HttpLoggingInterceptor.Level.BASIC)
+    }.setLevel(HttpLoggingInterceptor.Level.BODY)
     private val TIMEOUT = 15_000L
 
     private val peanutClient: OkHttpClient
@@ -36,6 +37,7 @@ class ApplicationNetwork {
         return Retrofit.Builder()
             .baseUrl(PEANUT_URL)
             .client(peanutClient)
+            .addConverterFactory(ScalarsConverterFactory.create())
             .addConverterFactory(jsonConverter)
             .build()
             .create(PeanutApi::class.java)
