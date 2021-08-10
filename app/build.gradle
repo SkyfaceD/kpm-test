@@ -53,6 +53,7 @@ dependencies {
     implementation "androidx.constraintlayout:constraintlayout:$constraintVersion"
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:$swipeVersion"
     implementation "com.faltenreich:skeletonlayout:$skeletonVersion"
+    implementation "com.google.android.flexbox:flexbox:$flexboxVersion"
 
     //Network
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"

@@ -17,6 +17,10 @@
     <string name="lbl_min_price">Мин.</string>
     <string name="lbl_max_price">Макс.</string>
     <string name="lbl_filters">Фильтры</string>
+    <string name="lbl_currency_pairs">Валютные пары</string>
+    <string name="lbl_date_from">Начальная дата</string>
+    <string name="lbl_date_to">Конечная дата</string>
+    <string name="lbl_accept">Применить</string>
 
     <string name="placeholder_equity">Капитал: %1$s</string>
     <string name="placeholder_free_margin">Доступно: %1$s</string>
@@ -25,6 +29,7 @@
 
     <string name="hint_username">Имя пользователя</string>
     <string name="hint_password">Пароль</string>
+    <string name="hint_choose_date">Выберите дату</string>
 
     <string name="error_fill_empty_field">Заполните пустое поле</string>
     <string name="error_profile_fetching">Не удалось загрузить профиль</string>

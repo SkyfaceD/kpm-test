@@ -2,6 +2,7 @@ package org.skyfaced.kpm_test.utils.extensions
 
 import android.annotation.SuppressLint
 import android.content.SharedPreferences
+import androidx.core.content.edit
 import org.skyfaced.kpm_test.model.Credentials
 import org.skyfaced.kpm_test.model.network.body.AuthorizationBody
 import org.skyfaced.kpm_test.utils.*
@@ -38,3 +39,13 @@ val SharedPreferences.credentials
         getString(PREFERENCES_PEANUT_TOKEN, "") ?: "",
         getString(PREFERENCES_PARTNER_TOKEN, "") ?: ""
     )
+
+fun SharedPreferences.clearCredentials() {
+    edit(true) {
+        remove(PREFERENCES_LOGIN)
+        remove(PREFERENCES_PASSWORD)
+        remove(PREFERENCES_REMEMBER)
+        remove(PREFERENCES_PEANUT_TOKEN)
+        remove(PREFERENCES_PARTNER_TOKEN)
+    }
+}
