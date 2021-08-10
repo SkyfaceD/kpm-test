@@ -93,8 +93,10 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(R.layout.fragment_p
             txtPhoneNumber.text = phoneNumber
 
             txtBalance.text = balance.beautifyMoney(currencyCode.symbol)
-            txtEquity.text = equity.beautifyMoney(currencyCode.symbol)
-            txtFreeMargin.text = freeMargin.beautifyMoney(currencyCode.symbol)
+            txtEquity.text =
+                getString(R.string.placeholder_equity, equity.beautifyMoney(currencyCode.symbol))
+            txtFreeMargin.text = getString(R.string.placeholder_free_margin,
+                freeMargin.beautifyMoney(currencyCode.symbol))
 
             txtCurrentTradesCountValue.text = currentTradesCount
             txtTotalTradesCountValue.text = totalTradesCount
@@ -116,8 +118,8 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(R.layout.fragment_p
                 imgCountry.load(R.drawable.fl_empty)
             }
             txtCity.text = city
-            txtAddress.text = address
-            txtZipCode.text = zipCode
+            txtAddress.text = getString(R.string.placeholder_address, address)
+            txtZipCode.text = getString(R.string.placeholder_zip_code, zipCode)
         }
     }
 
