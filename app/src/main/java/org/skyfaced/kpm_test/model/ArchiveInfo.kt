@@ -1,5 +1,6 @@
 package org.skyfaced.kpm_test.model
 
+import org.skyfaced.kpm_test.model.adapter.ArchiveItem
 import org.skyfaced.kpm_test.utils.extensions.beautifyMoney
 import java.text.SimpleDateFormat
 import java.util.*

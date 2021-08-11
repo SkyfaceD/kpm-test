@@ -4,6 +4,8 @@ const val APPLICATION_NAME = "KPMTest"
 
 const val PEANUT_URL = "https://peanut.ifxdb.com"
 const val PARTNER_URL = "https://client-api.contentdatapro.com"
+const val CABINET_MICRO_SERVICE_WSDL_URL =
+    "https://api-forexcopy.contentdatapro.com/Services/CabinetMicroService.svc?singleWsdl"
 
 const val PREFERENCES_NAME = "${APPLICATION_NAME}Preferences"
 const val PREFERENCES_LOGIN = "${PREFERENCES_NAME}Login"

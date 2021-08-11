@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import org.skyfaced.kpm_test.databinding.ItemArchiveBinding
-import org.skyfaced.kpm_test.model.ArchiveItem
+import org.skyfaced.kpm_test.model.adapter.ArchiveItem
 
 class ArchiveAdapter(
     private val onItemClick: (ArchiveItem) -> Unit,

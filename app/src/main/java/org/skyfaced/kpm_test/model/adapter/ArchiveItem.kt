@@ -1,4 +1,4 @@
-package org.skyfaced.kpm_test.model
+package org.skyfaced.kpm_test.model.adapter
 
 data class ArchiveItem(
     val id: Int,

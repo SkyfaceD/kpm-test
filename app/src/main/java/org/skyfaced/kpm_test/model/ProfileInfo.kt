@@ -30,27 +30,27 @@ data class ProfileInfo(
     val leverage: Int,
     val isAnyOpenTrades: Boolean,
     val isSwapFree: Boolean,
-)
+) {
+    /**
+     * @see [https://en.wikipedia.org/wiki/ISO_4217](ISO 4217)
+     */
+    enum class CurrencyCode(val symbol: String) {
+        RUB("₽"),
 
-/**
- * @see [https://en.wikipedia.org/wiki/ISO_4217](ISO 4217)
- */
-enum class CurrencyCode(val symbol: String) {
-    RUB("₽"),
+        //Unknown
+        A(""),
+        B(""),
+        C(""),
+        D("")
+    }
 
     //Unknown
-    A(""),
-    B(""),
-    C(""),
-    D("")
-}
-
-//Unknown
-enum class AccountType {
-    A,
-    B,
-    C,
-    D,
-    E,
-    F
+    enum class AccountType {
+        A,
+        B,
+        C,
+        D,
+        E,
+        F
+    }
 }

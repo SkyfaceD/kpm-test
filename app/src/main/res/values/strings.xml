@@ -36,6 +36,7 @@
     <string name="error_fill_empty_field">Заполните пустое поле</string>
     <string name="error_profile_fetching">Не удалось загрузить профиль</string>
     <string name="error_archive_fetching">Не удалось загрузить архивы</string>
+    <string name="error_promotions_fetching">Не удалось загрузить акции</string>
     <string name="error_authorization">Не удалось авторизоваться</string>
     <string name="error_network_lost">Нет подключения к Интернету</string>
     <string name="error_choose_date">Вам необходимо выбрать дату</string>

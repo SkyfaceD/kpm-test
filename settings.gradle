@@ -1,9 +1,12 @@
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
+        //TODO Simplest workaround. I dunno what to do with that.
+        maven {
+            url "https://oss.sonatype.org/content/repositories/ksoap2-android-releases/"
+        }
         google()
         mavenCentral()
-        jcenter() // Warning: this repository is going to shut down soon
     }
 }
 rootProject.name = "kpm-test"

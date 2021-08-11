@@ -75,6 +75,9 @@ dependencies {
     //DI
     implementation "io.insert-koin:koin-android:$koinVersion"
 
+    //Ksoap
+    implementation "com.google.code.ksoap2-android:ksoap2-android:$ksoapVersion"
+
     //Lifecycle
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion"
 

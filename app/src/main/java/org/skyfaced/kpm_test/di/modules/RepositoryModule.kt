@@ -9,6 +9,8 @@ import org.skyfaced.kpm_test.repository.authentication.PartnerAuthenticationRepo
 import org.skyfaced.kpm_test.repository.authentication.PeanutAuthenticationRepositoryImpl
 import org.skyfaced.kpm_test.repository.profile.ProfileRepository
 import org.skyfaced.kpm_test.repository.profile.ProfileRepositoryImpl
+import org.skyfaced.kpm_test.repository.promotions.PromotionsRepository
+import org.skyfaced.kpm_test.repository.promotions.PromotionsRepositoryImpl
 
 @ExperimentalSerializationApi
 val repositoryModule = module {
@@ -26,5 +28,9 @@ val repositoryModule = module {
 
     single<ArchiveRepository> {
         ArchiveRepositoryImpl(get<ApplicationNetwork>().partnerApi(), get())
+    }
+
+    single<PromotionsRepository> {
+        PromotionsRepositoryImpl(get(), get())
     }
 }

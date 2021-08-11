@@ -6,7 +6,7 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import org.skyfaced.kpm_test.model.ArchiveInfo
-import org.skyfaced.kpm_test.model.CurrencyPairItem
+import org.skyfaced.kpm_test.model.adapter.CurrencyPairItem
 import org.skyfaced.kpm_test.repository.archive.ArchiveRepository
 import org.skyfaced.kpm_test.utils.Result
 import org.skyfaced.kpm_test.utils.extensions.resultHandler

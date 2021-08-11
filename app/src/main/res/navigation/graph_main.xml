@@ -7,12 +7,12 @@
 
     <navigation
         android:id="@+id/stock_graph"
-        app:startDestination="@id/stock_fragment">
+        app:startDestination="@id/promotions_fragment">
 
         <fragment
-            android:id="@+id/stock_fragment"
-            android:name="org.skyfaced.kpm_test.ui.stock.StockFragment"
-            tools:layout="@layout/fragment_stock" />
+            android:id="@+id/promotions_fragment"
+            android:name="org.skyfaced.kpm_test.ui.promotions.PromotionsFragment"
+            tools:layout="@layout/fragment_promotions" />
 
     </navigation>
 

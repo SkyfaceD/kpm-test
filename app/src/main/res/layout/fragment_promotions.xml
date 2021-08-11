@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:text="Stock"
+        android:text="Promotions"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

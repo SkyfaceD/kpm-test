@@ -1,8 +1,6 @@
 package org.skyfaced.kpm_test.model.network.response
 
 import kotlinx.serialization.Serializable
-import org.skyfaced.kpm_test.model.AccountType
-import org.skyfaced.kpm_test.model.CurrencyCode
 
 import org.skyfaced.kpm_test.model.ExtensionData
 import org.skyfaced.kpm_test.model.ProfileInfo
@@ -45,8 +43,8 @@ data class AccountInformationResponse(
         city = city,
         address = address,
         zipCode = zipCode,
-        currencyCode = CurrencyCode.values()[currency],
-        type = AccountType.values()[type],
+        currencyCode = ProfileInfo.CurrencyCode.values()[currency],
+        type = ProfileInfo.AccountType.values()[type],
         verificationLevel = verificationLevel,
         leverage = leverage,
         isAnyOpenTrades = isAnyOpenTrades,
