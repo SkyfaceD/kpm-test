@@ -29,7 +29,7 @@ class CurrencyPairAdapter(
 
         init {
             binding.chip.setOnClickListener {
-                onItemClick(_currencyPairItem!!, position)
+                onItemClick(_currencyPairItem!!, _position!!)
             }
         }
 
