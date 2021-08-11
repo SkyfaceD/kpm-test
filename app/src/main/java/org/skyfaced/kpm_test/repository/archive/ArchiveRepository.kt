@@ -4,8 +4,8 @@ import org.skyfaced.kpm_test.model.ArchiveInfo
 
 interface ArchiveRepository {
     suspend fun fetchArchiveInfo(
-        currencyPairs: List<String>,
+        currencyPairs: String,
         from: Int,
         to: Int,
-    ): List<ArchiveInfo>
+    ): List<ArchiveInfo>?
 }

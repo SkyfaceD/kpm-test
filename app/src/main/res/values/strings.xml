@@ -21,6 +21,8 @@
     <string name="lbl_date_from">Начальная дата</string>
     <string name="lbl_date_to">Конечная дата</string>
     <string name="lbl_accept">Применить</string>
+    <string name="lbl_search_not_found">Ничего не удалось найти</string>
+    <string name="lbl_start_search">Начните поиск используя фильтры</string>
 
     <string name="placeholder_equity">Капитал: %1$s</string>
     <string name="placeholder_free_margin">Доступно: %1$s</string>
@@ -36,4 +38,6 @@
     <string name="error_archive_fetching">Не удалось загрузить архивы</string>
     <string name="error_authorization">Не удалось авторизоваться</string>
     <string name="error_network_lost">Нет подключения к Интернету</string>
+    <string name="error_choose_date">Вам необходимо выбрать дату</string>
+    <string name="error_choose_currency_pair">Выберите хотя бы одну валютную пару</string>
 </resources>

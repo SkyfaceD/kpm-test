@@ -16,10 +16,12 @@ abstract class BaseFragment<V : ViewBinding>(@LayoutRes layoutId: Int) : Fragmen
 
     protected abstract fun setupBinding(inflater: LayoutInflater, parent: ViewGroup?): V
 
+    protected val TAG = this::class.java.simpleName
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
         _binding = setupBinding(inflater, container)
         return binding.root

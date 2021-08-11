@@ -10,12 +10,12 @@ class ArchiveRepositoryImpl(
     private val api: PartnerApi,
     private val preferences: SharedPreferences,
 ) : ArchiveRepository {
-    override suspend fun fetchArchiveInfo(currencyPairs: List<String>, from: Int, to: Int) = try {
+    override suspend fun fetchArchiveInfo(currencyPairs: String, from: Int, to: Int) = try {
         val (login, token) = preferences.partnerBody
-        api.analyticSignals(login, token, currencyPairs.joinToString(), from, to)
+        api.analyticSignals(login, token, currencyPairs, from, to)
             .map(AnalyticSignalsResponse::toArchiveInfo)
     } catch (e: Exception) {
         Timber.e(e.cause)
-        emptyList()
+        null
     }
 }
