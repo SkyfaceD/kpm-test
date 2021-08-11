@@ -41,4 +41,5 @@
     <string name="error_network_lost">Нет подключения к Интернету</string>
     <string name="error_choose_date">Вам необходимо выбрать дату</string>
     <string name="error_choose_currency_pair">Выберите хотя бы одну валютную пару</string>
+    <string name="error_cannot_open_promotion">Не удалось открыть акцию</string>
 </resources>
