@@ -3,6 +3,7 @@
 .idea/
 .keystore/
 release/
+!apks/release
 
 /local.properties
 .DS_Store
