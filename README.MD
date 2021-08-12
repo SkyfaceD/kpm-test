@@ -5,7 +5,8 @@ Debug|Release
 with leakcanary|with minify and shrink
 
 Apks can be found in github [release](https://github.com/SkyfaceD/kpm-test/releases/) section or in
-repository folder `/apks`
+repository folder `/apks`.
+
 You can install both versions on one device.
 
 ## Stack
@@ -27,7 +28,7 @@ You can install both versions on one device.
   performant way to initialize components at application startup
 - [Coroutines](https://github.com/Kotlin/kotlinx.coroutines)
   + [Flow](https://developer.android.com/kotlin/flow) - asynchronous world
-- [Retrofit2](https://github.com/square/retrofit) + [OkHttp3](https://github.com/square/okhttp) - A
+- [Retrofit2](https://github.com/square/retrofit) + [OkHttp3](https://github.com/square/okhttp) - a
   type-safe HTTP client for Android and Java
 - [Ksoap2](https://simpligility.github.io/ksoap2-android/) - a lightweight and efficient SOAP client
   library for the Android platform
@@ -69,5 +70,5 @@ You can install both versions on one device.
 
 ## License
 
-(License)[https://github.com/SkyfaceD/kpm-test/blob/main/LICENSE] can found in root directory of
+[License](https://github.com/SkyfaceD/kpm-test/blob/main/LICENSE) can found in root directory of
 repository 
