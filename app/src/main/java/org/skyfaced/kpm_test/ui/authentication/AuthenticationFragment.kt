@@ -108,7 +108,6 @@ class AuthenticationFragment :
                 val destination =
                     AuthenticationFragmentDirections.actionAuthenticationFragmentToProfileGraph()
                 findNavController().navigate(destination)
-//                findNavController().setGraph(R.navigation.graph_main)
             }
         }
     }

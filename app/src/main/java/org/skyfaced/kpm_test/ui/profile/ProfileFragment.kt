@@ -42,10 +42,9 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(R.layout.fragment_p
                 Timber.d("Sign Out")
                 preferences.clear(true)
 
-//                val destination =
-//                    ProfileFragmentDirections.actionProfileFragmentToStartGraph()
-//                findNavController().navigate(destination)
-                findNavController().navigate(R.id.start_graph)
+                val destination =
+                    ProfileFragmentDirections.actionProfileFragmentToGraphStart()
+                findNavController().navigate(destination)
             }
         }
 
@@ -61,6 +60,8 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(R.layout.fragment_p
                         else -> false
                     }.let { isRefreshing ->
                         swipeRefresh.isRefreshing = isRefreshing
+                        grpToolbar.isVisible = !isRefreshing
+                        scrollableContainer.isVisible = !isRefreshing
                     }
 
                     when (result) {
