@@ -2,8 +2,10 @@
 
 Debug|Release
 ---|---
-[with leakcanary](https://github.com/SkyfaceD/kpm-test/tree/main/apks/debug)|[with minify and shrink][https://github.com/SkyfaceD/kpm-test/tree/main/apks/release]
+with leakcanary|with minify and shrink
 
+Apks can be found in github [release](https://github.com/SkyfaceD/kpm-test/releases/) section or in
+repository folder `/apks`
 You can install both versions on one device.
 
 ## Stack
