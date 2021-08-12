@@ -17,6 +17,7 @@ import java.util.concurrent.TimeUnit
 @ExperimentalSerializationApi
 class ApplicationNetwork(
     private val peanutTokenInterceptor: PeanutTokenInterceptor,
+    private val partnerTokenInterceptor: PartnerTokenInterceptor,
 ) {
     private val jsonConverter = Json.asConverterFactory("application/json".toMediaType())
     private val logInterceptor = HttpLoggingInterceptor { message ->
@@ -50,6 +51,7 @@ class ApplicationNetwork(
         get() {
             return OkHttpClient.Builder()
                 .addInterceptor(logInterceptor)
+                .addInterceptor(partnerTokenInterceptor)
                 .connectTimeout(TIMEOUT, TimeUnit.SECONDS)
                 .writeTimeout(TIMEOUT, TimeUnit.SECONDS)
                 .readTimeout(TIMEOUT, TimeUnit.SECONDS)

@@ -8,10 +8,7 @@ import kotlinx.serialization.json.Json
 import org.koin.android.ext.koin.androidApplication
 import org.koin.core.scope.Scope
 import org.koin.dsl.module
-import org.skyfaced.kpm_test.network.ApplicationNetwork
-import org.skyfaced.kpm_test.network.CabinetMicroServiceApi
-import org.skyfaced.kpm_test.network.CabinetMicroServiceImpl
-import org.skyfaced.kpm_test.network.PeanutTokenInterceptor
+import org.skyfaced.kpm_test.network.*
 import org.skyfaced.kpm_test.utils.NetworkState
 import org.skyfaced.kpm_test.utils.PREFERENCES_NAME
 
@@ -25,7 +22,9 @@ val applicationModule = module(createdAtStart = true) {
 
     single { PeanutTokenInterceptor(get()) }
 
-    single { ApplicationNetwork(get()) }
+    single { PartnerTokenInterceptor(get()) }
+
+    single { ApplicationNetwork(get(), get()) }
 
     single<CabinetMicroServiceApi> { CabinetMicroServiceImpl() }
 }
