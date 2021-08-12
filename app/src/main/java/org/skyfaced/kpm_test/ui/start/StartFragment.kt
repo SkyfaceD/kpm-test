@@ -92,7 +92,6 @@ class StartFragment : BaseFragment<FragmentStartBinding>(R.layout.fragment_start
                 Timber.d("Credentials saved")
                 val destination = StartFragmentDirections.actionStartFragmentToProfileGraph()
                 findNavController().navigate(destination)
-//                findNavController().setGraph(R.navigation.graph_main)
             }
         }
     }

@@ -95,7 +95,8 @@ class MainActivity : AppCompatActivity(), GlobalNavigationHandler {
         runOnUiThread {
             snack(why, anchorView = binding.root)
             preferences.clearCredentials()
-//            navController.setGraph(R.navigation.graph_start)
+            //TODO fix navigation
+            navController.setGraph(R.navigation.graph_start)
         }
     }
 }
