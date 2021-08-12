@@ -26,8 +26,7 @@ You can install both versions on one device.
   app, not on your tools
 - [Startup](https://developer.android.com/topic/libraries/app-startup) - provides a straightforward,
   performant way to initialize components at application startup
-- [Coroutines](https://github.com/Kotlin/kotlinx.coroutines)
-  + [Flow](https://developer.android.com/kotlin/flow) - asynchronous world
+- [Coroutines](https://github.com/Kotlin/kotlinx.coroutines) + [Flow](https://developer.android.com/kotlin/flow) - asynchronous world
 - [Retrofit2](https://github.com/square/retrofit) + [OkHttp3](https://github.com/square/okhttp) - a
   type-safe HTTP client for Android and Java
 - [Ksoap2](https://simpligility.github.io/ksoap2-android/) - a lightweight and efficient SOAP client
