@@ -51,11 +51,13 @@ data class AccountInformationResponse(
         isSwapFree = isSwapFree,
     )
 
+    //FIXME stupid one
     private fun String.extractCountryCode(lowerCase: Boolean = true): String {
         val countries = Locale.getISOCountries()
         for (country in countries) {
-            val locale = Locale("", country)
-            if (locale.displayName == this) {
+            val locale = Locale("en", country)
+            val displayName = locale.getDisplayName(Locale.ENGLISH)
+            if (displayName.contains(this)) {
                 return if (lowerCase) locale.country.lowercase() else locale.country
             }
         }
