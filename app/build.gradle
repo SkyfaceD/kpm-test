@@ -5,6 +5,10 @@ plugins {
     id 'androidx.navigation.safeargs.kotlin'
 }
 
+def keystorePropertiesFile = rootProject.file(".keystore/keystore.properties")
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
 android {
     compileSdk 30
 
@@ -13,11 +17,22 @@ android {
         minSdk 21
         targetSdk 30
         versionCode 1
-        versionName "1.0.0"
+        versionName "1.0.0-alpha"
+    }
+
+    signingConfigs {
+        release {
+            keyAlias keystoreProperties['alias']
+            keyPassword keystoreProperties['password']
+            storeFile file(keystoreProperties['path'])
+            storePassword keystoreProperties['password']
+        }
     }
 
     buildTypes {
         debug {
+            versionNameSuffix "-dev"
+            applicationIdSuffix '.dev'
             debuggable true
         }
 
@@ -26,6 +41,7 @@ android {
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
 
