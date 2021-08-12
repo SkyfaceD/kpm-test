@@ -85,4 +85,5 @@ dependencies {
     implementation "androidx.core:core-ktx:$coreKtxVersion"
     implementation "androidx.appcompat:appcompat:$appCompatVersion"
     implementation "androidx.startup:startup-runtime:$startupVersion"
+    implementation "androidx.fragment:fragment-ktx:$fragmentVersion"
 }

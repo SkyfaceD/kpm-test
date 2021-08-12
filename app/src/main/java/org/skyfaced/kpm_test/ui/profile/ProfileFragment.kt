@@ -42,9 +42,10 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(R.layout.fragment_p
                 Timber.d("Sign Out")
                 preferences.clear(true)
 
-                val destination =
-                    ProfileFragmentDirections.actionProfileFragmentToAuthenticationFragment()
-                findNavController().navigate(destination)
+//                val destination =
+//                    ProfileFragmentDirections.actionProfileFragmentToStartGraph()
+//                findNavController().navigate(destination)
+                findNavController().navigate(R.id.start_graph)
             }
         }
 

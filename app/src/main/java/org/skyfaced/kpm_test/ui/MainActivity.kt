@@ -35,7 +35,6 @@ class MainActivity : AppCompatActivity(), GlobalNavigationHandler {
     private var _navController: NavController? = null
     private val navController get() = requireNotNull(_navController) { "Nav controller isn't initialized" }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.Theme_KPM)
         super.onCreate(savedInstanceState)
@@ -78,7 +77,7 @@ class MainActivity : AppCompatActivity(), GlobalNavigationHandler {
         anchorView: View = binding.navView,
     ) {
         Snackbar.make(binding.root, message, duration)
-            .setAnchorView(binding.navView)
+            .setAnchorView(anchorView)
             .show()
     }
 
@@ -96,7 +95,7 @@ class MainActivity : AppCompatActivity(), GlobalNavigationHandler {
         runOnUiThread {
             snack(why, anchorView = binding.root)
             preferences.clearCredentials()
-            navController.setGraph(R.navigation.graph_start)
+//            navController.setGraph(R.navigation.graph_start)
         }
     }
 }

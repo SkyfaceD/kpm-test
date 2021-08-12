@@ -106,8 +106,9 @@ class AuthenticationFragment :
                 if (!isSaved) return@collect
                 Timber.d("Credentials saved")
                 val destination =
-                    AuthenticationFragmentDirections.actionAuthenticationFragmentToGraphMain()
+                    AuthenticationFragmentDirections.actionAuthenticationFragmentToProfileGraph()
                 findNavController().navigate(destination)
+//                findNavController().setGraph(R.navigation.graph_main)
             }
         }
     }
