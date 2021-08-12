@@ -8,8 +8,9 @@ class ProfileRepositoryImpl(
     private val api: PeanutApi,
     private val preferences: SharedPreferences,
 ) : ProfileRepository {
+    private val body get() = preferences.peanutBody
+
     override suspend fun fetchAccountInfo() = try {
-        val body = preferences.peanutBody
 
         val phoneNumber = api.lastFourNumberPhone(body)
         val accountInfo = api.accountInformation(body)

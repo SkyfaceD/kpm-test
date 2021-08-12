@@ -11,6 +11,7 @@ import org.koin.dsl.module
 import org.skyfaced.kpm_test.network.ApplicationNetwork
 import org.skyfaced.kpm_test.network.CabinetMicroServiceApi
 import org.skyfaced.kpm_test.network.CabinetMicroServiceImpl
+import org.skyfaced.kpm_test.network.PeanutTokenInterceptor
 import org.skyfaced.kpm_test.utils.NetworkState
 import org.skyfaced.kpm_test.utils.PREFERENCES_NAME
 
@@ -22,7 +23,9 @@ val applicationModule = module(createdAtStart = true) {
 
     single { json }
 
-    single { ApplicationNetwork() }
+    single { PeanutTokenInterceptor(get()) }
+
+    single { ApplicationNetwork(get()) }
 
     single<CabinetMicroServiceApi> { CabinetMicroServiceImpl() }
 }

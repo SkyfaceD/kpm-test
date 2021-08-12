@@ -9,10 +9,8 @@ import org.skyfaced.kpm_test.utils.*
 
 @SuppressLint("ApplySharedPref")
 fun SharedPreferences.clear(commit: Boolean = false) {
-    if (commit) {
-        edit().clear().commit()
-    } else {
-        edit().clear().apply()
+    edit(commit) {
+        clear()
     }
 }
 
@@ -22,8 +20,20 @@ val SharedPreferences.login: Int
 val SharedPreferences.peanutToken: String
     get() = getString(PREFERENCES_PEANUT_TOKEN, "") ?: ""
 
+fun SharedPreferences.savePeanutToken(token: String) {
+    edit(true) {
+        putString(PREFERENCES_PEANUT_TOKEN, token)
+    }
+}
+
 val SharedPreferences.partnerToken: String
     get() = getString(PREFERENCES_PARTNER_TOKEN, "") ?: ""
+
+fun SharedPreferences.savePartnerToken(token: String) {
+    edit(true) {
+        putString(PREFERENCES_PARTNER_TOKEN, token)
+    }
+}
 
 val SharedPreferences.peanutBody: AuthorizationBody
     get() = AuthorizationBody(login, peanutToken)

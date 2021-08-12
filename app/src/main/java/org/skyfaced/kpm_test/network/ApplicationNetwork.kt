@@ -15,7 +15,9 @@ import timber.log.Timber
 import java.util.concurrent.TimeUnit
 
 @ExperimentalSerializationApi
-class ApplicationNetwork {
+class ApplicationNetwork(
+    private val peanutTokenInterceptor: PeanutTokenInterceptor,
+) {
     private val jsonConverter = Json.asConverterFactory("application/json".toMediaType())
     private val logInterceptor = HttpLoggingInterceptor { message ->
         Timber.tag("OkHttp").d(message)
@@ -26,6 +28,7 @@ class ApplicationNetwork {
         get() {
             return OkHttpClient.Builder()
                 .addInterceptor(logInterceptor)
+                .addInterceptor(peanutTokenInterceptor)
                 .protocols(listOf(Protocol.HTTP_1_1))
                 .connectTimeout(TIMEOUT, TimeUnit.SECONDS)
                 .writeTimeout(TIMEOUT, TimeUnit.SECONDS)
